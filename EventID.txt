@@ -1,0 +1,6 @@
+Event 1 : Football, Semi-finals Round, Women, Tokyo Stadium, 3.8.20, 13.00, 2, 30
+Event 2 : Football, Semi-finals Round, Men, Tokyo Stadium, 4.8.20, 13.00, 2, 30
+Event 3 : Football, Bronze Medal Match Round, Women, Tokyo Stadium, 6.8.20, 14.00, 2, 30
+Event 4 : Football, Bronze Medal Match Round, Men, Tokyo Stadium, 7.8.20, 14.00, 2, 30
+Event 5: Football, Gold Medal Match Round, Women, Tokyo Stadium, 7.8.20, 15.00, 2, 35
+Event 6: Football, Gold Medal Match Round, Men, Tokyo Stadium, 8.8.20, 11.00, 2, 35
