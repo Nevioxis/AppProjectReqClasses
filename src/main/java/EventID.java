@@ -1,6 +1,6 @@
 public class EventID 
 {
-    private String id, sport, discipline, category, venue, date, start, duration, bus;
+    private String sport, discipline, category, venue, date, start, duration, bus;
     private final int eventNo;
     private static int eventCount = 0;
 
@@ -10,10 +10,9 @@ public class EventID
 	eventNo = eventCount;	
     }
 
-    public EventID (String EventID, String Sport, String Discipline, String Category, String Venue,
+    public EventID (String Sport, String Discipline, String Category, String Venue,
                                 String  Date, String Start_time, String Duration, String Bus_Travel_Time)
     {
-        id = EventID;
         sport = Sport;
         discipline = Discipline;
         category = Category;
@@ -26,14 +25,9 @@ public class EventID
         eventNo = eventCount;
     }
     
-    public void setID(String id)
+    public int getEventNo()
     {
-        this.id = id;
-    }
-    
-    public String getID()
-    {
-        return id;
+        return eventNo;
     }
     
     public void setSport(String sport)
@@ -60,5 +54,9 @@ public class EventID
     {
         this.category = category;
     }
-
+    @Override
+    public String toString()
+    {
+        return "Event " + Integer.toString(eventNo) + " : " + sport+ ", " + discipline+ ", " + category+ ", " + venue+ ", " + date+ ", " + start+ ", " + duration+ ", " + bus;
+    }
 }
