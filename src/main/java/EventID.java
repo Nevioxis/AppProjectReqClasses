@@ -57,6 +57,8 @@ public class EventID
     @Override
     public String toString()
     {
-        return "Event " + Integer.toString(eventNo) + " : " + sport+ ", " + discipline+ ", " + category+ ", " + venue+ ", " + date+ ", " + start+ ", " + duration+ ", " + bus;
+        return "Event " + Integer.toString(eventNo) + " :\t" + sport+ ",\t\t\t" + discipline+ ",\t\t\t\t\t" + category+ ",\t\t\t\t" + venue+ ",\t\t\t\t\t" + date+ ",\t" + start+ ",\t\t" + duration+ ",\t\t\t" + bus;
     }
 }
+
+

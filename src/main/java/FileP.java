@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class FileP 
 {
-    File file;
+    private final File file;
     public FileP(String x) 
     {
         file = new File(x);
@@ -100,6 +100,7 @@ public class FileP
         return text;
     }
 }
+
 
 
 
