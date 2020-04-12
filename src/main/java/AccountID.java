@@ -18,6 +18,15 @@ public class AccountID
         accCount++;
         accNo = accCount;
     }
+    public AccountID(String id,String pw)
+    {
+        userID = id;
+        password = pw;
+        cardNumber = "N/A";
+        CVC = "N/A";
+        accCount++;
+        accNo = accCount;
+    }
     public void setUesrID(String id)
     {
         userID = id;
@@ -141,9 +150,15 @@ public class AccountID
     {
         return isValidID() && isValidPassword();
     }
+    public boolean isCardInformationIncluded()
+    {
+        return !cardNumber.equals("N/A") && !CVC.equals("N/A");
+    }
     @Override
     public String toString()
     {
-        return "Account " + Integer.toString(accNo) + " : " + userID + ", " + password + ", " + cardNumber + ", " + CVC;
+        if(cardNumber.equals("N/A")) return "Account " + Integer.toString(accNo) + " : " + userID + ",\t" + password;
+        else return "Account " + Integer.toString(accNo) + " : " + userID + ",\t" + password + ",\t" + cardNumber + ",\t" + CVC;
     }
  }
+

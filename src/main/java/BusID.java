@@ -10,7 +10,7 @@ public class BusID
         busCount++;
         busNo = busCount;
     }
-    public BusID(String bt,String d,String dt,int btt,int r,int c,int cost,int pcost,int pseat)
+    public BusID(String bt,String d,String dt,int btt,int r,int c,String cost,String pcost,int pseat)
     {
         this.busType = bt;
         this.destination = d;
@@ -18,9 +18,23 @@ public class BusID
         this.busTravelTime= btt;
         rows = r;
         this.columns = c;
-        this.cost = cost;
-        this.costPremium = pcost;
+        this.cost = Integer.parseInt(cost.replace("B", ""));
+        this.costPremium = Integer.parseInt(cost.replace("B", ""));;
         this.seatPremium = pseat;
+        busCount++;
+        busNo = busCount;
+    }
+    public BusID(String bt,String d,String dt,int btt,int r,int c,String cost)
+    {
+        this.busType = bt;
+        this.destination = d;
+        this.departureTime= dt;
+        this.busTravelTime= btt;
+        rows = r;
+        this.columns = c;
+        this.cost = Integer.parseInt(cost.replace("B", ""));;
+        this.costPremium = 0;
+        this.seatPremium = 0;
         busCount++;
         busNo = busCount;
     }
@@ -103,7 +117,17 @@ public class BusID
     @Override
     public String toString()
     {
-       return "Bus " + Integer.toString(busNo) + " : " +  "Type " + busType + ", " + departureTime + ", " + Integer.toString(busTravelTime)+ ", " 
-               + Integer.toString(rows) + ", " + Integer.toString(columns)+ ", " + Integer.toString(cost) + ", " + Integer.toString(costPremium)+ ", " + Integer.toString(seatPremium);
+       if(seatPremium == 0)
+       {
+           return "Bus " + Integer.toString(busNo) + ": " +  "Type " + busType + ",\t\t" + destination  + ",\t\t\t\t" + departureTime + ",\t\t" + Integer.toString(busTravelTime)+ ",\t\t\t" 
+               + Integer.toString(rows) + ",\t\t" + Integer.toString(columns)+ ",\t\t" + "B" + Integer.toString(cost);
+       }
+       else
+       {
+           return "Bus " + Integer.toString(busNo) + ": " +  "Type " + busType + ",\t\t" + destination  + ",\t\t\t\t" + departureTime + ",\t\t" + Integer.toString(busTravelTime)+ ",\t\t\t" 
+               + Integer.toString(rows) + ",\t\t" + Integer.toString(columns)+ ",\t\t" + "B" + Integer.toString(cost) + ",\t\t" + "B" + Integer.toString(costPremium)+ ",\t\t" + Integer.toString(seatPremium);
+       }
     }
 }
+
+
