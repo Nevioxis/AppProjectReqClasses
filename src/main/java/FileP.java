@@ -40,13 +40,7 @@ public class FileP
             x.println(t);
         }
         x.close();
-    }
-    public ArrayList<String> toStringOfObject(ArrayList<Object> obj)
-    {
-        ArrayList<String> text = new ArrayList<>();
-        for(Object x : obj) text.add(x.toString());
-        return text;
-    }
+    } 
     public ArrayList<String> readLinesWithSkippedLines(String skip) throws FileNotFoundException
     {
         Scanner x = new Scanner(file);
@@ -100,6 +94,7 @@ public class FileP
         return text;
     }
 }
+
 
 
 

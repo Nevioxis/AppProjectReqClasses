@@ -1,12 +1,13 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 public class GatheringInput
 {
-    protected  ArrayList<String> input;
-    protected  ArrayList<AccountID> accounts;
-    protected  ArrayList<BusID> buses;
-    protected  ArrayList<EventID> events;
-    public GatheringInput (FileP file) throws FileNotFoundException
+    private  ArrayList<String> input;
+    private  ArrayList<AccountID> accounts;
+    private  ArrayList<BusID> buses;
+    private  ArrayList<EventID> events;
+    public GatheringInput (FileP file) throws FileNotFoundException, IOException
     {
         input = file.readLinesWithSkippedLinesWithoutBlank("//");
         accounts = new ArrayList<>();
@@ -17,6 +18,7 @@ public class GatheringInput
         EventID event;
         AccountID account;
         BusID bus;
+        LoginToken token;
         for(String i: input)
         {
             content = i.replace("\t", "");
@@ -44,11 +46,15 @@ public class GatheringInput
                 if (info.length == 4)
                 {
                     account = new AccountID(info[0].split(":")[1],info[1],info[2],info[3]);
+                    token = new LoginToken(account);
+                    token.createTokenfile();
                     accounts.add(account);
                 }
                 else
                 {
                     account = new AccountID(info[0].split(":")[1],info[1]);
+                    token = new LoginToken(account);
+                    token.createTokenfile();
                     accounts.add(account);
                 }
             }
@@ -71,6 +77,11 @@ public class GatheringInput
         return events;
     }
 }
+
+
+
+
+
 
 
 
