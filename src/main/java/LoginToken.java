@@ -1,14 +1,13 @@
 import java.io.*;
 public class LoginToken extends AccountID
 {
-    private String tokenName;
-    private String tokenFileName;
+    private final String tokenName;
+    private final String tokenFileName;
     private static int tokenCount = 0;
     private int tokenNumber;
     public LoginToken(AccountID id)
     {
         super(id.getUesrID(),id.getPassword(),id.getCardNumber(),id.getCVC());    
-        if (super.isValidAccountCondition()) throw new IllegalArgumentException("Invalid Account");
         tokenCount++;
         tokenNumber = tokenCount;
         tokenName = super.getUesrID();
@@ -64,6 +63,7 @@ public class LoginToken extends AccountID
         }
     }
 }
+
 
 
 

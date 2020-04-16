@@ -1,5 +1,4 @@
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 public class GatheringInput
 {
@@ -45,20 +44,28 @@ public class GatheringInput
             {
                 if (info.length == 4)
                 {
-                    account = new AccountID(info[0].split(":")[1],info[1],info[2],info[3]);
+                    account = new AccountID(info[0].split(":")[1].strip(),info[1],info[2],info[3]);
                     token = new LoginToken(account);
                     token.createTokenfile();
                     accounts.add(account);
                 }
                 else
                 {
-                    account = new AccountID(info[0].split(":")[1],info[1]);
+                    account = new AccountID(info[0].split(":")[1].strip(),info[1]);
                     token = new LoginToken(account);
                     token.createTokenfile();
                     accounts.add(account);
                 }
             }
+            
         }
+        File user = new File("UserList.txt");
+        PrintWriter x = new PrintWriter(user);
+        for(AccountID a : this.accounts)
+        {
+            x.println(a.getUesrID());
+        }
+        x.close();
     }
     public ArrayList<String> getInput()
     {
@@ -77,6 +84,9 @@ public class GatheringInput
         return events;
     }
 }
+
+
+
 
 
 
