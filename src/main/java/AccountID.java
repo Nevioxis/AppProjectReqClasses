@@ -1,3 +1,7 @@
+
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
 public class AccountID 
 {
     private String userID,password;
@@ -63,7 +67,7 @@ public class AccountID
     {
         return accNo;
     }
-    public boolean isValidID()
+    public boolean isValidID() throws FileNotFoundException
     {
         char FirstupperChar = userID.toUpperCase().charAt(0);
         boolean areTheyAllLetters = true;
@@ -75,7 +79,13 @@ public class AccountID
                 break;
             }
         }
-        return FirstupperChar == userID.charAt(0) && areTheyAllLetters;
+        FileP acc = new FileP("UserList.txt");
+        ArrayList<String> a = new ArrayList<>();
+        for(String i : acc.readLines())
+        {
+          a.add(i);
+        }
+        return FirstupperChar == userID.charAt(0) && areTheyAllLetters && !a.contains(this.userID);
     }
     public boolean isValidPassword()
     {
@@ -161,4 +171,6 @@ public class AccountID
         else return "Account " + Integer.toString(accNo) + " : " + userID + ",\t" + password + ",\t" + cardNumber + ",\t" + CVC;
     }
  }
+
+
 

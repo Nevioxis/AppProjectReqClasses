@@ -1,7 +1,8 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 public class Tester 
 {
-    public static void main(String[] args) throws FileNotFoundException 
+    public static void main(String[] args) throws FileNotFoundException, IOException 
     {
         FileP file = new FileP("E:\\AppProject\\input.txt");
         GatheringInput x = new GatheringInput(file);
@@ -21,8 +22,13 @@ public class Tester
          {
               System.out.println(i);
          }
+        InfoWriter file2 = new InfoWriter("E:\\AppProject\\input2.txt");
+        file2.update(x.getAccounts(),x.getBuses(),x.getEvents());
     }
 }
+
+
+
 
 
 
