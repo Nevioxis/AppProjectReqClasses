@@ -139,12 +139,12 @@ public class AccountID
         }
         return false;
     }
-    public String isValidAccount()
+    public String isValidAccount() throws FileNotFoundException
     {
         if(isValidID() && isValidPassword()) return "All Complete!";
         else if(!isValidID() && isValidPassword())
         {
-            return "User ID must contain only English alphabetic characters and start with uppercase.";
+            return "User ID must contain only English alphabetic characters and start with uppercase. Or, This userID is already exist";
         }
         else if(!isValidPassword() && isValidID())
         {
@@ -152,11 +152,11 @@ public class AccountID
         }
         if(!isValidID() && !isValidPassword())
         {
-            return "User ID must contain only English alphabetic characters and start with uppercase." + "\nPassword needs at least 1 uppercase, 5 lowercases, 3 numbers, and 1 special character (!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~).";
+            return "User ID must contain only English alphabetic characters and start with uppercase. Or, This userID is already exist" + "\nPassword needs at least 1 uppercase, 5 lowercases, 3 numbers, and 1 special character (!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~).";
         }
         else {return "Error";}
     }
-    public boolean isValidAccountCondition()
+    public boolean isValidAccountCondition() throws FileNotFoundException
     {
         return isValidID() && isValidPassword();
     }
@@ -171,6 +171,4 @@ public class AccountID
         else return "Account " + Integer.toString(accNo) + " : " + userID + ",\t" + password + ",\t" + cardNumber + ",\t" + CVC;
     }
  }
-
-
 
