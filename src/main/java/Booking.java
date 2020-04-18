@@ -66,6 +66,28 @@ public class Booking
         if(seat.isEmpty()) return "Please select a seat!";
         else return "You select too many seats!";
     }
+    public boolean payment(String CVC)
+    {
+        if(this.bookingUser.isCardInformationIncluded())
+        {
+            return this.bookingUser.getCVC().equals(CVC);
+        }
+        else return false;
+    }
+    public String paymentText(String CVC)
+    {
+        if(payment(CVC))
+        {
+            return "Payment successed.";
+        }
+        else if(this.bookingUser.isCardInformationIncluded())
+        {
+            return "Payment failed because of wrong CVC code.";
+        }
+        else return "Payment failed because of no payment info.";
+    }
 }
+
+
 
 
